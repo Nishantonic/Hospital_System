@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Basics</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      nav ul li {
+        margin-bottom: 5px;
+      }
+      section {
+        margin-top: 50px;
+      }
+      code {
+        background-color: #f4f4f4;
+        padding: 2px 5px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Basic HTML Tags</h1>
+    <h3>Assignment -3 {Web Technology}</h3>
+
+    <!-- Bookmark Navigation -->
+    <nav>
+      <ul>
+        <li><a href="#heading">1. &lt;h1&gt; - Heading Tag</a></li>
+        <li><a href="#paragraph">2. &lt;p&gt; - Paragraph Tag</a></li>
+        <li><a href="#link">3. &lt;a&gt; - Anchor Tag</a></li>
+        <li><a href="#image">4. &lt;img&gt; - Image Tag</a></li>
+        <li><a href="#list">5. &lt;ul&gt; and &lt;li&gt; - List Tags</a></li>
+        <li><a href="#table">6. &lt;table&gt; - Table Tag</a></li>
+        <li><a href="#bold">7. &lt;strong&gt; - Bold Text Tag</a></li>
+        <li><a href="#italic">8. &lt;i&gt; - Italic Tag</a></li>
+        <li><a href="#input">9. &lt;input&gt; - Input Tag</a></li>
+        <li><a href="#button">10. &lt;button&gt; - Button Tag</a></li>
+      </ul>
+    </nav>
+
+    <!-- Section 1: Heading -->
+    <section id="heading">
+      <h2>1. &lt;h1&gt; - Heading Tag</h2>
+      <p>
+        <strong>Definition:</strong> The &lt;h1&gt; tag defines the most
+        important heading. There are six levels of headings, from &lt;h1&gt; to
+        &lt;h6&gt;, with &lt;h1&gt; being the highest.
+      </p>
+      <p>
+        <strong>Syntax:</strong>
+        <code>&lt;h1&gt;Your Heading Text&lt;/h1&gt;</code>
+      </p>
+      <p><strong>Example:</strong></p>
+      <code>&lt;h1&gt;Welcome to My Website&lt;/h1&gt;</code>
+      <h1>Welcome to My Website</h1>
+      <a href="#top">Back to top</a>
+    </section>
+
+    <!-- Section 2: Paragraph -->
+    <section id="paragraph">
+      <h2>2. &lt;p&gt; - Paragraph Tag</h2>
+      <p>
+        <strong>Definition:</strong> The &lt;p&gt; tag defines a paragraph in
+        HTML.
+      </p>
+      <p>
+        <strong>Syntax:</strong>
+        <code>&lt;p&gt;Your paragraph text goes here&lt;/p&gt;</code>
+      </p>
+      <p><strong>Example:</strong></p>
+      <code>&lt;p&gt;This is a paragraph of text.&lt;/p&gt;</code>
+      <p>This is a paragraph of text.</p>
+      <a href="#top">Back to top</a>
+    </section>
+
+    <!-- Section 3: Anchor -->
+    <section id="link">
+      <h2>3. &lt;a&gt; - Anchor Tag</h2>
+      <p>
+        <strong>Definition:</strong> The &lt;a&gt; tag defines a hyperlink, used
+        to link to another page or location.
+      </p>
+      <p>
+        <strong>Syntax:</strong>
+        <code>&lt;a href="URL"&gt;Link Text&lt;/a&gt;</code>
+      </p>
+      <p><strong>Example:</strong></p>
+      <code
+        >&lt;a href="https://www.example.com"&gt;Visit Example&lt;/a&gt;</code
+      >
+      <p>
+        Example :
+        <a href="https://web.mitsgwalior.in/" target="_blank">Anchor Tag </a>
+      </p>
+    </section>
+
+    <!-- Section 4: Image -->
+    <section id="image">
+      <h2>4. &lt;img&gt; - Image Tag</h2>
+      <p>
+        <strong>Definition:</strong> The &lt;img&gt; tag is used to embed an
+        image in an HTML page.
+      </p>
+      <p>
+        <strong>Syntax:</strong>
+        <code>&lt;img src="image.jpg" alt="description" /&gt;</code>
+      </p>
+      <p><strong>Example:</strong></p>
+      <code>&lt;img src="image.jpg" alt="Sample Image" /&gt;</code>
+      <p>
+        <img
+          src="https://www.infomazeelite.com/wp-content/uploads/2022/12/MERN-Stack-Development.png"
+          alt="Sample Image"
+        />
+      </p>
+      <a href="#top">Back to top</a>
+    </section>
+
+    <!-- Section 5: List -->
+    <section id="list">
+      <h2>5. &lt;ul&gt; and &lt;li&gt; - List Tags</h2>
+      <p>
+        <strong>Definition:</strong> The &lt;ul&gt; tag defines an unordered
+        list, and the &lt;li&gt; tag defines a list item.
+      </p>
+      <p>
+        <strong>Syntax:</strong>
+        <code>&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;</code>
+      </p>
+      <p><strong>Example:</strong></p>
+      <code
+        >&lt;ul&gt;&lt;li&gt;First Item&lt;/li&gt;&lt;li&gt;Second
+        Item&lt;/li&gt;&lt;/ul&gt;</code
+      >
+      <ul>
+        <li>First Item</li>
+        <li>Second Item</li>
+      </ul>
+      <a href="#top">Back to top</a>
+    </section>
+
+    <!-- Section 6: Table -->
+    <section id="table">
+      <h2>6. &lt;table&gt; - Table Tag</h2>
+      <p>
+        <strong>Definition:</strong> The &lt;table&gt; tag defines a table in
+        HTML.
+      </p>
+      <p>
+        <strong>Syntax:</strong>
+        <code
+          >&lt;table&gt;&lt;tr&gt;&lt;td&gt;Cell&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code
+        >
+      </p>
+      <p><strong>Example:</strong></p>
+      <code
+        >&lt;table&gt;&lt;tr&gt;&lt;td&gt;Row 1, Cell
+        1&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code
+      >
+      <table border="5">
+        <tr>
+          <td>Row 1, Cell 1</td>
+          <td>Row 1, Cell 2</td>
+          <td>Row 1, Cell 3</td>
+        </tr>
+        <tr>
+          <td>Row 2, Cell 1</td>
+          <td>Row 2, Cell 2</td>
+          <td>Row 2, Cell 3</td>
+        </tr>
+        <tr>
+          <td>Row 3, Cell 1</td>
+          <td>Row 3, Cell 2</td>
+          <td>Row 3, Cell 3</td>
+        </tr>
+      </table>
+      <a href="#top">Back to top</a>
+    </section>
+
+    <!-- Section 7: Strong -->
+    <section id="bold">
+      <h2>7. &lt;strong&gt; - Bold Text Tag</h2>
+      <p>
+        <strong>Definition:</strong> The &lt;strong&gt; tag is used to make text
+        bold and semantically strong.
+      </p>
+      <p>
+        <strong>Syntax:</strong>
+        <code>&lt;strong&gt;Bold Text&lt;/strong&gt;</code>
+      </p>
+      <p><strong>Example:</strong></p>
+      <code>&lt;strong&gt;This text is bold.&lt;/strong&gt;</code>
+      <p><strong>My Name is Nishant Banger</strong></p>
+      <a href="#top">Back to top</a>
+    </section>
+
+    <!-- Section 8: Italic -->
+    <section id="italic">
+      <h2>8. &lt;i&gt; - Italic Tag</h2>
+      <p>
+        <strong>Definition:</strong> The &lt;i&gt; tag is used to display text
+        in italics.
+      </p>
+      <p>
+        <strong>Syntax:</strong> <code>&lt;i&gt;Italic Text&lt;/i&gt;</code>
+      </p>
+      <p><strong>Example:</strong></p>
+      <code>&lt;i&gt;This text is italic.&lt;/i&gt;</code>
+      <p><i>My name is written in Italic</i></p>
+      <a href="#top">Back to top</a>
+    </section>
+
+    <!-- Section 9: Input -->
+    <section id="input">
+      <h2>9. &lt;input&gt; - Input Tag</h2>
+      <p>
+        <strong>Definition:</strong> The &lt;input&gt; tag is used to create
+        input fields in forms.
+      </p>
+      <p>
+        <strong>Syntax:</strong>
+        <code>&lt;input type="text" name="username" /&gt;</code>
+      </p>
+      <p><strong>Example:</strong></p>
+      <code>&lt;input type="text" placeholder="Enter your name" /&gt;</code>
+      <p><input type="text" placeholder="Enter your name" /></p>
+      <a href="#top">Back to top</a>
+    </section>
+
+    <!-- Section 10: Button -->
+    <section id="button">
+      <h2>10. &lt;button&gt; - Button Tag</h2>
+      <p>
+        <strong>Definition:</strong> The &lt;button&gt; tag defines a clickable
+        button.
+      </p>
+      <p>
+        <strong>Syntax:</strong>
+        <code>&lt;button&gt;Button Text&lt;/button&gt;</code>
+      </p>
+      <p><strong>Example:</strong></p>
+      <code>&lt;button&gt;Click Me&lt;/button&gt;</code>
+      <p><button onclick="handleButton()">Click Me</button></p>
+      <a href="#top">Back to top</a>
+    </section>
+
+    <script>
+      function handleButton() {
+        alert("This is my Assignment-3 😁😎");
+      }
+    </script>
+  </body>
+</html>

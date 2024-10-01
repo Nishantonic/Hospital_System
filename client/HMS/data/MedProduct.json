@@ -1,0 +1,567 @@
+[
+  {
+    "name": "Aspirin",
+    "image": "https://5.imimg.com/data5/SELLER/Default/2023/7/330506870/UM/GZ/QO/135658020/aspirin-dispersible-tablets.jpg",
+    "price": 5.99,
+    "description": "Aspirin is used to reduce fever and relieve mild to moderate pain from conditions such as muscle aches, toothaches, common cold, and headaches.",
+    "stock": 100,
+    "uses": [
+      "Pain relief",
+      "Fever reduction",
+      "Inflammation reduction"
+    ],
+    "manufacturer": "PharmaCorp",
+    "isPrescription": false,
+    "expiryDate": "2025-12-01"
+  },
+  {
+    "name": "Paracetamol",
+    "image": "https://5.imimg.com/data5/SELLER/Default/2022/9/IV/UY/CG/75459511/500mg-paracetamol-tablet.jpg",
+    "price": 3.50,
+    "description": "Paracetamol is used to treat mild to moderate pain (from headaches, menstrual periods, toothaches, backaches, osteoarthritis, or cold/flu aches and pains) and to reduce fever.",
+    "stock": 200,
+    "uses": [
+      "Fever relief",
+      "Pain relief"
+    ],
+    "manufacturer": "HealthMed",
+    "isPrescription": false,
+    "expiryDate": "2024-08-15"
+  },
+  {
+    "name": "Band-Aid",
+    "image": "https://m.media-amazon.com/images/I/51xIjbcbrTL.AC_UF1000,1000_QL80.jpg",
+    "price": 1.20,
+    "description": "Band-Aid brand adhesive bandages offer comfortable protection and absorbent pads for minor cuts and scrapes.",
+    "stock": 500,
+    "uses": [
+      "Wound protection",
+      "Minor cuts",
+      "First aid"
+    ],
+    "manufacturer": "Johnson & Johnson",
+    "isPrescription": false,
+    "expiryDate": "2027-02-28"
+  },
+  {
+    "name": "Ibuprofen",
+    "image": "https://5.imimg.com/data5/SELLER/Default/2024/2/382574615/WG/JA/OB/208131972/ibuprofen-tablets.jpg",
+    "price": 7.49,
+    "description": "Ibuprofen is used to reduce fever and treat pain or inflammation caused by conditions such as headache, toothache, back pain, arthritis, menstrual cramps, or minor injury.",
+    "stock": 150,
+    "uses": [
+      "Pain relief",
+      "Inflammation reduction",
+      "Fever reduction"
+    ],
+    "manufacturer": "PainAway Pharma",
+    "isPrescription": false,
+    "expiryDate": "2025-06-30"
+  },
+  {
+    "name": "Amoxicillin",
+    "image": "https://5.imimg.com/data5/ANDROID/Default/2023/4/302037696/HU/JI/VN/116627000/product-jpeg-500x500.jpg",
+    "price": 12.99,
+    "description": "Amoxicillin is used to treat bacterial infections. This medication is a penicillin-type antibiotic that works by stopping bacterial growth.",
+    "stock": 75,
+    "uses": [
+      "Bacterial infections",
+      "Ear infections",
+      "Respiratory infections"
+    ],
+    "manufacturer": "BioMed Labs",
+    "isPrescription": true,
+    "expiryDate": "2024-10-10"
+  },
+  {
+    "name": "Cetirizine",
+    "image": "https://5.imimg.com/data5/SELLER/Default/2023/5/311971664/FU/KT/PV/11858298/cetirizine-tablet.webp",
+    "price": 4.00,
+    "description": "Cetirizine is an antihistamine used to relieve allergy symptoms such as watery eyes, runny nose, itching eyes/nose, and sneezing.",
+    "stock": 300,
+    "uses": [
+      "Allergy relief",
+      "Itching relief",
+      "Sneezing"
+    ],
+    "manufacturer": "AllerMed",
+    "isPrescription": false,
+    "expiryDate": "2026-03-20"
+  },
+  {
+    "name": "Cough Syrup",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBM79pjEqLgSUb8iQSuGzXjVTdrP12_671hw&s",
+    "price": 6.99,
+    "description": "Cough syrup used to relieve cough caused by colds, bronchitis, and other breathing illnesses.",
+    "stock": 200,
+    "uses": [
+      "Cough relief",
+      "Soothes throat"
+    ],
+    "manufacturer": "HealthGen",
+    "isPrescription": false,
+    "expiryDate": "2025-09-12"
+  },
+  {
+    "name": "Vitamin C Tablets",
+    "image": "https://tajgenerics.com/wp-content/uploads/Vitamin-C-Tablet-Ascorbic-acid-Chewable-Tablets-500mg-manufcaturer-supplier-india-1-scaled.jpg",
+    "price": 8.99,
+    "description": "Vitamin C tablets to boost immune function and fight against vitamin deficiency.",
+    "stock": 500,
+    "uses": [
+      "Immunity boost",
+      "Vitamin C supplement"
+    ],
+    "manufacturer": "NutriHealth",
+    "isPrescription": false,
+    "expiryDate": "2025-11-21"
+  },
+  {
+    "name": "Insulin",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Inzul%C3%ADn.jpg/800px-Inzul%C3%ADn.jpg",
+    "price": 50.00,
+    "description": "Insulin is used to control blood sugar levels in people with diabetes.",
+    "stock": 120,
+    "uses": [
+      "Diabetes management",
+      "Blood sugar control"
+    ],
+    "manufacturer": "BioPharm",
+    "isPrescription": true,
+    "expiryDate": "2023-10-05"
+  },
+  {
+    "name": "Antibiotic Cream",
+    "image": "https://5.imimg.com/data5/SELLER/Default/2022/7/JK/WS/PW/21276273/triple-antibiotic-cream-500x500.jpg",
+    "description": "Antibiotic cream for treating minor wounds and infections on the skin.",
+    "stock": 250,
+    "uses": [
+      "Skin infections",
+      "Wound treatment"
+    ],
+    "manufacturer": "SkinGuard",
+    "isPrescription": false,
+    "expiryDate": "2026-01-15"
+  },
+  {
+    "name": "Calcium Tablets",
+    "image": "https://zenerics.in/wp-content/uploads/IMG_9051-medium.jpg",
+    "price": 10.99,
+    "description": "Calcium tablets used to prevent or treat low blood calcium levels in people who do not get enough calcium from their diets.",
+    "stock": 400,
+    "uses": [
+      "Bone health",
+      "Calcium supplement"
+    ],
+    "manufacturer": "NutriHealth",
+    "isPrescription": false,
+    "expiryDate": "2025-08-31"
+  },
+  {
+    "name": "Acetaminophen",
+    "image": "https://cdn.britannica.com/23/130223-050-99065995/acetaminophen-suppositories.jpg",
+    "price": 3.75,
+    "description": "Acetaminophen is used to treat pain and fever. It's effective for headaches, muscle aches, arthritis, backaches, toothaches, colds, and fevers.",
+    "stock": 600,
+    "uses": [
+      "Pain relief",
+      "Fever reduction"
+    ],
+    "manufacturer": "PharmaQuick",
+    "isPrescription": false,
+    "expiryDate": "2024-05-12"
+  },
+  {
+    "name": "Naproxen",
+    "image": "https://5.imimg.com/data5/SELLER/Default/2024/1/374821102/TK/MO/SX/204464971/naproxen-500-mg-tablets.jpg",
+    "price": 8.75,
+    "description": "Naproxen is used to relieve pain and inflammation from various conditions such as headaches, muscle aches, tendonitis, and arthritis.",
+    "stock": 180,
+    "uses": [
+      "Pain relief",
+      "Inflammation reduction"
+    ],
+    "manufacturer": "HealthPharma",
+    "isPrescription": false,
+    "expiryDate": "2024-07-30"
+  },
+  {
+    "name": "Omeprazole",
+    "image": "https://5.imimg.com/data5/SELLER/Default/2022/9/LW/KG/ZK/8948997/omeprazole-20mg-as-enteric-coated-pallet-dpco-.JPG",
+    "price": 9.99,
+    "description": "Omeprazole is used to treat certain stomach and esophagus problems such as acid reflux and ulcers.",
+    "stock": 140,
+    "uses": [
+      "Acid reflux",
+      "Ulcer treatment"
+    ],
+    "manufacturer": "GutRelief",
+    "isPrescription": true,
+    "expiryDate": "2025-01-17"
+  },
+  {
+    "name": "Metformin",
+    "image": "https://5.imimg.com/data5/SELLER/Default/2024/1/379622313/OU/PZ/UW/208131972/metformin-hydrochloride-tablets.jpeg",
+    "price": 15.00,
+    "description": "Metformin is an oral diabetes medicine that helps control blood sugar levels.",
+    "stock": 160,
+    "uses": [
+      "Diabetes management",
+      "Blood sugar control"
+    ],
+    "manufacturer": "DiabetCare",
+    "isPrescription": true,
+    "expiryDate": "2025-04-05"
+  },
+  {
+    "name": "Simvastatin",
+    "image": "https://5.imimg.com/data5/SELLER/Default/2021/2/MI/YX/MQ/3148278/simvastatin-20mg.jpeg",
+    "price": 18.99,
+    "description": "Simvastatin is used to lower cholesterol and triglycerides in the blood.",
+    "stock": 130,
+    "uses": [
+      "Cholesterol control",
+      "Heart health"
+    ],
+    "manufacturer": "CardioMeds",
+    "isPrescription": true,
+    "expiryDate": "2024-11-22"
+  },
+  {
+    "name": "Loratadine",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCCCCZ6yIflBlaXgJXGVrCJYZS1VA1pWjmuQ&s",
+    "price": 4.50,
+    "description": "Loratadine is an antihistamine used to relieve allergy symptoms such as sneezing, runny nose, watery eyes, and itching.",
+    "stock": 280,
+    "uses": [
+      "Allergy relief",
+      "Itching relief"
+    ],
+    "manufacturer": "AllerMed",
+    "isPrescription": false,
+    "expiryDate": "2026-04-01"
+  },
+  {
+    "name": "Hydrocortisone Cream",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaan6Hxh_4C3DnxwjnxmG4oYsccMJMHBXiwg&s",
+    "price": 6.50,
+    "description": "Hydrocortisone cream is used to reduce inflammation and relieve itching from skin conditions such as eczema, psoriasis, and allergies.",
+    "stock": 350,
+    "uses": [
+      "Skin inflammation",
+      "Itching relief"
+    ],
+    "manufacturer": "SkinCare Pharma",
+    "isPrescription": false,
+    "expiryDate": "2025-09-18"
+  },
+  {
+    "name": "Multivitamin",
+    "image": "https://img2.hkrtcdn.com/30875/prd_3087491-MuscleBlaze-MBVITE-Daily-Multivitamin-for-Enhanced-Energy-Stamina-Gut-Health-30-tablets-Unflavoured_o.jpg",
+    "price": 12.99,
+    "description": "Multivitamin tablets provide essential vitamins and minerals to support overall health and well-being.",
+    "stock": 400,
+    "uses": [
+      "Vitamin supplement",
+      "Overall health"
+    ],
+    "manufacturer": "NutriPlus",
+    "isPrescription": false,
+    "expiryDate": "2025-03-12"
+  },
+  {
+    "name": "Probiotic Capsules",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXFVzxWdSRc9AtLwpZFnqKu9TDt7WUotdhjA&s",
+    "price": 14.99,
+    "description": "Probiotics are used to support gut health and improve digestion by balancing good bacteria in the digestive system.",
+    "stock": 320,
+    "uses": [
+      "Gut health",
+      "Digestion support"
+    ],
+    "manufacturer": "BioBalance",
+    "isPrescription": false,
+    "expiryDate": "2025-07-28"
+  },
+  {
+    "name": "Zinc Tablets",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/now/now01522/y/24.jpg",
+    "price": 6.99,
+    "description": "Zinc tablets are used to boost immune system function and improve overall health.",
+    "stock": 280,
+    "uses": [
+      "Immune support",
+      "Zinc deficiency"
+    ],
+    "manufacturer": "HealthLabs",
+    "isPrescription": false,
+    "expiryDate": "2025-10-25"
+  },
+  {
+    "name": "Clotrimazole Cream",
+    "image": "https://5.imimg.com/data5/SELLER/Default/2022/6/HE/RP/JI/66751685/canesten-clotrimazole-cream.jpg",
+    "price": 5.99,
+    "description": "Clotrimazole cream is used to treat fungal infections such as athlete's foot and ringworm.",
+    "stock": 220,
+    "uses": [
+      "Fungal infections",
+      "Athlete's foot",
+      "Ringworm"
+    ],
+    "manufacturer": "Dermacare",
+    "isPrescription": false,
+    "expiryDate": "2024-12-30"
+  },
+  {
+    "name": "Melatonin",
+    "image": "https://purenutrition.in/cdn/shop/products/Melatoninproductimages_2.jpg?v=1685958004.jpg",
+    "price": 8.50,
+    "description": "Melatonin supplements are used to treat sleep disorders and help regulate the body's natural sleep cycle.",
+    "stock": 400,
+    "uses": [
+      "Sleep aid",
+      "Insomnia relief"
+    ],
+    "manufacturer": "SleepEase",
+    "isPrescription": false,
+    "expiryDate": "2026-01-20"
+  },
+  {
+    "name": "Echinacea Capsules",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiPe8fAklZQW8LKtTKFiE0fN8fkh29P_1MeA&s.jpg",
+    "price": 10.99,
+    "description": "Echinacea is used to help reduce symptoms of colds and flu by boosting the immune system.",
+    "stock": 350,
+    "uses": [
+      "Cold relief",
+      "Immune support"
+    ],
+    "manufacturer": "HerbalCare",
+    "isPrescription": false,
+    "expiryDate": "2025-05-15"
+  },
+  {
+    "name": "Antacid Tablets",
+    "image": "https://www.bigbasket.com/media/uploads/p/l/40044276_1-apollo-pharmacy-antacid-chewable-tablets-mint-flavour-apa0034.jpg",
+    "price": 4.25,
+    "description": "Antacid tablets provide fast relief from heartburn, indigestion, and sour stomach.",
+    "stock": 600,
+    "uses": [
+      "Heartburn relief",
+      "Indigestion"
+    ],
+    "manufacturer": "AcidEase",
+    "isPrescription": false,
+    "expiryDate": "2025-02-08"
+  },
+  {
+    "name": "Lisinopril",
+    "image": "https://5.imimg.com/data5/SELLER/Default/2023/1/JR/YJ/LF/29824675/lisinopril-20-mg-tablet.jpg",
+    "price": 11.99,
+    "description": "Lisinopril is used to treat high blood pressure and heart failure. It may also reduce the risk of stroke.",
+    "stock": 180,
+    "uses": [
+      "High blood pressure",
+      "Heart failure"
+    ],
+    "manufacturer": "CardioHealth",
+    "isPrescription": true,
+    "expiryDate": "2024-11-15"
+  },
+  {
+    "name": "Folic Acid Tablets",
+    "image": "https://wellonapharma.com/admincms/product_img/product_resize_img/folic-acid-tablets_1628086542.jpg",
+    "price": 7.99,
+    "description": "Folic acid is a type of B vitamin that is used to treat or prevent low folate levels and its complications.",
+    "stock": 350,
+    "uses": [
+      "Folate deficiency",
+      "Pregnancy support"
+    ],
+    "manufacturer": "VitaPlus",
+    "isPrescription": false,
+    "expiryDate": "2025-12-01"
+  },
+  {
+    "name": "Glucosamine",
+    "image": "https://m.media-amazon.com/images/I/71PQRD5s93L.jpg",
+    "price": 12.99,
+    "description": "Glucosamine is used to support joint health and relieve osteoarthritis symptoms.",
+    "stock": 500,
+    "uses": [
+      "Joint support",
+      "Osteoarthritis relief"
+    ],
+    "manufacturer": "JointCare",
+    "isPrescription": false,
+    "expiryDate": "2025-06-10"
+  },
+  {
+    "name": "Doxycycline",
+    "image": "https://www.bhumipharma.com/wp-content/uploads/2023/04/Doxycycline-Capsules.jpg",
+    "price": 14.50,
+    "description": "Doxycycline is an antibiotic used to treat bacterial infections, including pneumonia and acne.",
+    "stock": 160,
+    "uses": [
+      "Bacterial infections",
+      "Acne treatment"
+    ],
+    "manufacturer": "AntibioticPlus",
+    "isPrescription": true,
+    "expiryDate": "2024-09-05"
+  },
+  {
+    "name": "Pregabalin",
+    "image": "https://img1.exportersindia.com/product_images/bc-full/2024/7/13375783/watermark/pregabalin-75-mg-capsule-1718964594-7489520.jpeg",
+    "price": 19.99,
+    "description": "Pregabalin is used to treat nerve pain caused by diabetes, shingles, or spinal cord injuries.",
+    "stock": 120,
+    "uses": [
+      "Nerve pain",
+      "Diabetic neuropathy"
+    ],
+    "manufacturer": "NeuroHealth",
+    "isPrescription": true,
+    "expiryDate": "2025-01-25"
+  },
+  {
+    "name": "Fish Oil Capsules",
+    "image": "https://cdn.kindlife.in/images/detailed/123/00-Salmon-Fish-Oil-Triple-Strength-Nirvasa-E-commerce-Pack_x250-nb.jpg?t=1692437135.jpg",
+    "price": 9.50,
+    "description": "Fish oil capsules contain omega-3 fatty acids, which help reduce inflammation and promote heart health.",
+    "stock": 800,
+    "uses": [
+      "Heart health",
+      "Anti-inflammatory"
+    ],
+    "manufacturer": "HeartCare",
+    "isPrescription": false,
+    "expiryDate": "2026-03-30"
+  },
+  {
+    "name": "Cough Lozenges",
+    "image": "https://www.jiomart.com/images/product/original/rv9kdorjtn/multani-kuka-cough-lozenges-cough-relief-tablets-3-pack-108-drops-tulsi-ginger-product-images-orv9kdorjtn-p591079309-0-202401181316.jpg?im=Resize=(420,420)",
+    "price": 3.25,
+    "description": "Cough lozenges soothe sore throats and help relieve coughs.",
+    "stock": 400,
+    "uses": [
+      "Cough relief",
+      "Sore throat"
+    ],
+    "manufacturer": "CoughRelief",
+    "isPrescription": false,
+    "expiryDate": "2025-04-12"
+  },
+  {
+    "name": "Iron Supplements",
+    "image": "https://m.media-amazon.com/images/I/61FUiv5JUoL.jpg",
+    "price": 6.50,
+    "description": "Iron supplements are used to treat or prevent iron deficiency anemia.",
+    "stock": 320,
+    "uses": [
+      "Iron deficiency",
+      "Anemia treatment"
+    ],
+    "manufacturer": "IronBoost",
+    "isPrescription": false,
+    "expiryDate": "2024-12-20"
+  },
+  {
+    "name": "Mouthwash",
+    "image": "https://m.media-amazon.com/images/I/81wkfQI6rnL.jpg",
+    "price": 5.99,
+    "description": "Antibacterial mouthwash helps prevent cavities and reduces plaque.",
+    "stock": 450,
+    "uses": [
+      "Oral hygiene",
+      "Plaque reduction"
+    ],
+    "manufacturer": "OralCare",
+    "isPrescription": false,
+    "expiryDate": "2025-06-25"
+  },
+  {
+    "name": "Vitamin D3",
+    "image": "https://boldfit.in/cdn/shop/products/VitaminD3Listing-01.jpg?v=1628761488&width=2048",
+    "price": 8.25,
+    "description": "Vitamin D3 is used to help the body absorb calcium and support bone health.",
+    "stock": 600,
+    "uses": [
+      "Bone health",
+      "Vitamin D deficiency"
+    ],
+    "manufacturer": "SunshineHealth",
+    "isPrescription": false,
+    "expiryDate": "2025-11-17"
+  },
+  {
+    "name": "Loperamide",
+    "image": "https://5.imimg.com/data5/ANDROID/Default/2023/2/KT/XK/YI/13166357/product-jpeg.jpg",
+    "price": 4.50,
+    "description": "Loperamide is used to treat diarrhea by slowing down gut movement.",
+    "stock": 300,
+    "uses": [
+      "Diarrhea relief"
+    ],
+    "manufacturer": "GutHealth",
+    "isPrescription": false,
+    "expiryDate": "2024-10-09"
+  },
+  {
+    "name": "Antiseptic Wipes",
+    "image": "https://cdnprod.mafretailproxy.com/sys-master-root/hbb/hf9/10066244337694/242858_main.jpg_480Wx480H",
+    "price": 2.75,
+    "description": "Antiseptic wipes are used to clean wounds and reduce the risk of infection.",
+    "stock": 800,
+    "uses": [
+      "Wound cleaning",
+      "Infection prevention"
+    ],
+    "manufacturer": "CleanCare",
+    "isPrescription": false,
+    "expiryDate": "2026-02-15"
+  },
+  {
+    "name": "Omega-3 Capsules",
+    "image": "https://cdn01.pharmeasy.in/dam/products_otc/G00067/wow-life-science-omega-3-capsules-bottle-of-60-2-1658483968.jpg",
+    "price": 7.99,
+    "description": "Omega-3 capsules are used to support cardiovascular health and reduce inflammation.",
+    "stock": 700,
+    "uses": [
+      "Heart health",
+      "Anti-inflammatory"
+    ],
+    "manufacturer": "HealthEssentials",
+    "isPrescription": false,
+    "expiryDate": "2025-09-30"
+  },
+  {
+    "name": "Hydroxychloroquine",
+    "image": "https://pharmaceutical-journal.com/wp-content/uploads/2021/01/hydroxychloroquine-alamy-20-scaled.jpg",
+    "price": 12.50,
+    "description": "Hydroxychloroquine is used to treat malaria, lupus, and rheumatoid arthritis.",
+    "stock": 100,
+    "uses": [
+      "Malaria treatment",
+      "Lupus",
+      "Rheumatoid arthritis"
+    ],
+    "manufacturer": "GlobalPharma",
+    "isPrescription": true,
+    "expiryDate": "2025-01-08"
+  },
+  {
+    "name": "Hand Sanitizer",
+    "image": "https://vanninhealthcare.com/wp-content/uploads/2020/08/Hands-sanitiser75-500x500-1.png",
+    "price": 3.50,
+    "description": "Hand sanitizer kills 99.9% of germs and bacteria on hands.",
+    "stock": 1000,
+    "uses": [
+      "Hand hygiene",
+      "Bacteria prevention"
+    ],
+    "manufacturer": "GermFree",
+    "isPrescription": false,
+    "expiryDate": "2025-04-18"
+  }
+]

@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.validCheck{
+  height: 10px;
+  width: 30px;
+  
+
+}
+
+.invalidCheck{
+  height: 20px;
+  width: 30px;
+  color: rgb(255, 5, 5);
+  
+}
+
+.hidden{
+background-color: red;
+visibility:hidden;
+opacity: 0;
+}
+
+.show{
+  opacity: 100;
+}
+
+.margin-padding{
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.bottomBtn{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
