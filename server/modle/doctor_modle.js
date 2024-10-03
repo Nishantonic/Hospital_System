@@ -8,7 +8,12 @@ const doctorModle = mongoose.Schema({
   },
   phoneNo:Number,
   experience:Number,
-  speciality:String
+  speciality:String,
+  image: {
+type:String,
+require:true
+  }
+  
 });
 
 const docData = mongoose.model("docData", doctorModle);

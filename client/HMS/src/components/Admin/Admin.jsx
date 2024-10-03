@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./Navbar"; // Assuming you already have a Navbar component
+import Navbar from "../Navbar"; // Assuming you already have a Navbar component
 import axios from "axios";
-import Doctors from "../../src/components/Admin/Doctors";
-import Appointment from "./Admin/Appointment";
-
+import Doctors from "./Doctors";
+import Appointment from "./Appointment";
+import { Link } from "react-router-dom";
 const Admin = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
   const [doctor, setDoctor] = useState("");
@@ -20,7 +20,7 @@ const Admin = () => {
 
     const handleAppointment = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/appoint/");
+        const res = await axios.get("http://localhost:5000/appoint");
         setAppoint(res.data);
       } catch (error) {
         alert("Error", error.message);
@@ -28,7 +28,7 @@ const Admin = () => {
     };
     handleDoctor();
     handleAppointment();
-  });
+  }, []);
   // Function to handle navigation between tabs
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -96,11 +96,24 @@ const Admin = () => {
             )}
             {activeTab === "doctors" && (
               <div>
-                <h1 className="text-3xl font-bold mb-4">Doctors Management</h1>
-                <p>Manage doctors, add new doctors, update doctor profiles.</p>
+                <div className="flex justify-around">
+                  <div>
+                    <h1 className="text-3xl font-bold mb-4">
+                      Doctors Management
+                    </h1>
+                    <p>
+                      Manage doctors, add new doctors, update doctor profiles.
+                    </p>
+                  </div>
+                  <span>
+                    <Link to="/admin/add">
+                      <button className="text-red-700">Add Doctor</button>
+                    </Link>
+                  </span>
+                </div>
                 <div className="grid grid-cols-2 gap-6">
                   {doctor.map((doctor) => (
-                    <Doctors doctor={doctor} />
+                    <Doctors doctor={doctor} key={doctor.id} />
                   ))}
                 </div>
 

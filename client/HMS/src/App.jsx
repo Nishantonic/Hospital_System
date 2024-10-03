@@ -3,13 +3,15 @@ import Home from "./components/Home";
 import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-import Admin from "./components/Admin";
+import Admin from "./components/Admin/Admin";
 // import User from "./components/User";
 import BuyMedicine from "../src/components/User/BuyMedicine";
 import { jwtDecode } from "jwt-decode";
 import Doctor from "./components/User/Doctor";
 import GetAppointment from "./components/User/GetAppointment";
 import Cart_product from "./components/User/Cart_product";
+import CreateDoctor from "./components/Admin/CreateDoctor";
+import UpdateDoctor from "./components/Admin/UpdateDoctor";
 
 const App = () => {
   const [role, setRole] = useState("null");
@@ -62,6 +64,15 @@ const App = () => {
           <Route
             path="/admin"
             element={role === "admin" ? <Admin /> : <Login />}
+          />
+
+          <Route
+            path="/admin/add"
+            element={role === "admin" ? <CreateDoctor /> : <Login />}
+          />
+          <Route
+            path="/admin/update/:id"
+            element={role === "admin" ? <UpdateDoctor /> : <Login />}
           />
         </Routes>
       </BrowserRouter>

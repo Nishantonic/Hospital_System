@@ -1,6 +1,6 @@
 import multer from 'multer';
 import bcryptjs from 'bcryptjs';
-import validator from 'validator';
+// import validator from 'validator';
 import jwt from 'jsonwebtoken';
 import SignUP from "../../modle/login/Signup_model.js";
 // D:\My Code\College_Work\Hos_Manag_Sys\server\my-uploads
@@ -15,6 +15,8 @@ const storage = multer.diskStorage({
     cb(null, `${file.fieldname}-${uniqueSuffix}.${fileExtension}`); // Save file with the correct extension
   }
 });
+
+
 
 const upload = multer({
   storage: storage,
@@ -116,7 +118,9 @@ export const login = async (req, res) => {
            role: user.role,
             name: user.name, 
             email: user.email, 
-            image:user.image },
+            image:user.image,
+            phoneNo:user.phoneNo
+          },
         "itsNishant",
         { expiresIn: "30d" }
       );

@@ -1,11 +1,14 @@
 import doctor from "../modle/doctor_modle.js";
-
+import bcryptjs from 'bcryptjs';
+import multer from "multer";
+import jwt from "jsonwebtoken"
 export const docDetails = async (req, res)=>{
   try {
     const allDoctors = await doctor.find();
     res.status(200).json(allDoctors)
     // console.log("Details of all Doctors");
     
+
   } catch (error) {
     console.log("Message:  "+ error);
     res.send("message: "+ error);
@@ -13,20 +16,62 @@ export const docDetails = async (req, res)=>{
   }
 }
 
+
+// upload image
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './my-uploads'); // Make sure this path is correct
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    const fileExtension = file.mimetype.split('/')[1]; // Get file extension from MIME type
+    cb(null, `${file.fieldname}-${uniqueSuffix}.${fileExtension}`); // Save file with the correct extension
+  }
+});
+
+const upload = multer({
+  storage: storage,
+  fileFilter: (req, file, cb) => {
+    // Accept image files only
+    if (file.mimetype.startsWith("image/")) {
+      cb(null, true);
+    } else {
+      cb(new Error("Only images are allowed"), false);
+    }
+  }
+}).single('profileImage');  
+
 export const createDoc = async (req, res)=>{
+  upload(req, res, async function(err){
+if(err){
+  res.send(err)
+  console.log(err);
+  }
+   
   try {
-    const {name, email,phoneNo,experience,speciality} = req.body;
+    const {name, email,phoneNo, password,experience,speciality, image} = req.body;
     const docValid = await doctor.findOne({email:email})
     if(docValid){return res.status(401).send("Already registered...")}
+
+    const hashPassword = await bcryptjs.hash(password, 10);
+
+    const filepath = req.file ? req.file.path : null;
+
     const newDoc = new doctor({
       name:name,
       email:email,
       phoneNo:phoneNo,
+      password: hashPassword,
       experience:experience,
-      speciality:speciality
+      speciality:speciality,
+      image : filepath
     })
+
+    // const newDoctor = await doctor.save();
     const newDoctor = await doctor.create(newDoc);
-    res.status(200).json(newDoctor);
+
+    const token = jwt.sign({newDoctor}, "itsNishant", {expiresIn: '30d'})
+    res.status(200).json({"token": token, "Doctor": newDoctor});
 
 
     
@@ -34,7 +79,22 @@ export const createDoc = async (req, res)=>{
     console.log("Message: "+ error);
     res.send("message: "+ error);
   }
+})
 }
+
+export const singleDoctor = async (req, res)=>{
+const {id} = req.params;
+  const singleDoc = await doctor.findById({_id: id});
+  try {
+    
+    if(singleDoc){
+      res.status(200).send(singleDoc);
+    }
+  } catch (error) {
+    console.log(error);
+    
+  }
+} 
 
 export const updateDoctor = async (req, res) => {
   const { id } = req.params;
@@ -62,7 +122,7 @@ export const deleteDoctor = async (req, res) => {
   }
   try {
     const deleteAppoint = await doctor.findByIdAndDelete(id);
-    res.status(400).send("Doctor Deleted...");
+    res.status(400).send("Doctor Deleted...", deleteAppoint);
   } catch (error) {
     res.status(404).send(error.message);
     console.log("Doctor not deleted");

@@ -57,7 +57,7 @@ const SignUp = () => {
       data.append("password", formData.password);
       data.append("phoneNo", formData.phoneNo);
       if (formData.image) {
-        data.append("profileImage", formData.image); // Key must match the multer config
+        data.append("profileImage", formData.image);
       }
 
       try {
