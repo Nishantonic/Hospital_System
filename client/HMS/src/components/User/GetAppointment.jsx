@@ -7,9 +7,10 @@ const GetAppointment = () => {
   const [minDate, setMinDate] = useState("");
   const [doctor, setDoctor] = useState();
   const [time, setTime] = useState("");
+  const [getDoctor, setAllDoctor] = useState("");
 
   useEffect(() => {
-    const getData = () => {
+    const getData = async () => {
       const token = localStorage.getItem("token");
       if (token) {
         try {
@@ -19,6 +20,9 @@ const GetAppointment = () => {
             email: decoded.email || "",
             phoneNo: decoded.phoneNo || "", // Ensure phoneNo is present in JWT
           });
+
+          const res = await axios.get("http://localhost:5000/doctor/");
+          setAllDoctor(res.data);
         } catch (error) {
           console.error("Error decoding token: ", error.message);
         }
@@ -108,7 +112,7 @@ const GetAppointment = () => {
               </div>
 
               {/* Phone */}
-              {/* <div className="mb-4">
+              <div className="mb-4">
                 <label
                   className="block text-gray-700 text-sm font-bold mb-2"
                   htmlFor="phone"
@@ -123,7 +127,7 @@ const GetAppointment = () => {
                   value={user.phoneNo}
                   readOnly
                 />
-              </div> */}
+              </div>
 
               {/* Select Doctor */}
               <div className="mb-4">
@@ -141,11 +145,15 @@ const GetAppointment = () => {
                   }}
                 >
                   <option value="">Select Doctor</option>
-                  <option value="doctor1">Dr. Sunil Batra</option>
+
+                  {/* {getDoctor.map((doc) => (
+                    <option>{doc.name}</option>
+                  ))} */}
+                  {/* <option value="doctor1">Dr. Sunil Batra</option>
                   <option value="doctor2">Dr. Akash Singh</option>
                   <option value="doctor3">Dr. Emily Davis</option>
                   <option value="doctor3">Dr. Kratika Saxsena</option>
-                  <option value="doctor3">Dr. Pallavi Thakur</option>
+                  <option value="doctor3">Dr. Pallavi Thakur</option> */}
                 </select>
               </div>
 

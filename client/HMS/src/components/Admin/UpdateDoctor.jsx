@@ -4,22 +4,9 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const UpdateDoctor = () => {
   const navigate = useNavigate();
-  const id = useParams();
+  const { id } = useParams();
 
-  const [doctor, setDoctor] = useState({});
-
-  useEffect(() => {
-    const getDoctor = async () => {
-      const res = await axios.get(
-        `http://localhost:5000/doctor/getSingleDoctor/${id}`
-      );
-      setDoctor(res.data);
-      console.log(res.data);
-    };
-    getDoctor();
-  }, []);
-
-  const [form, setform] = useState({
+  const [form, setForm] = useState({
     name: "",
     email: "",
     phoneNo: "",
@@ -29,36 +16,68 @@ const UpdateDoctor = () => {
     image: null,
   });
 
+  useEffect(() => {
+    const getDoctor = async () => {
+      try {
+        const res = await axios.get(
+          `http://localhost:5000/doctor/getSingleDoctor/${id}`
+        );
+        const fetchedDoctor = res.data;
+        console.log("FEtchedDoctor", fetchedDoctor);
+
+        // Set form data with fetched doctor's data
+        setForm({
+          name: fetchedDoctor.name || "",
+          email: fetchedDoctor.email || "",
+          phoneNo: fetchedDoctor.phoneNo || "",
+          password: fetchedDoctor.password || "",
+          speciality: fetchedDoctor.speciality || "",
+          experience: fetchedDoctor.experience || "",
+          image: fetchedDoctor.image,
+        });
+      } catch (error) {
+        console.log("Error fetching doctor: ", error.message);
+      }
+    };
+
+    getDoctor();
+  }, [id]);
+
+  // Handle input change
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setform({ ...form, [name]: value });
+    setForm({ ...form, [name]: value });
+    console.log("change in form : ", form);
   };
 
+  // Handle file input (image)
   const handleFile = (e) => {
-    setform({
+    setForm({
       ...form,
       image: e.target.files[0],
     });
   };
 
+  // Submit the updated form data
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const doctor = new FormData(); // Corrected this part
-      doctor.append("name", doctor.name);
-      doctor.append("email", form.email);
-      doctor.append("phoneNo", form.phoneNo);
-      doctor.append("password", form.password);
-      doctor.append("speciality", form.speciality);
-      doctor.append("experience", form.experience);
+      const formData = new FormData();
+      formData.append("name", form.name);
+      formData.append("email", form.email);
+      formData.append("phoneNo", form.phoneNo);
+      formData.append("password", form.password);
+      formData.append("speciality", form.speciality);
+      formData.append("experience", form.experience);
       if (form.image) {
-        doctor.append("profileImage", form.image);
+        formData.append("profileImage", form.image);
       }
 
-      const res = await axios.post(
-        "http://localhost:5000/doctor/update",
-        doctor,
+      // Update doctor with the specific ID
+      const res = await axios.put(
+        `http://localhost:5000/doctor/update/${id}`, // Using PUT for updates, assuming API supports it
+        formData,
         {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -66,23 +85,27 @@ const UpdateDoctor = () => {
         }
       );
 
-      console.log("Doctor created successfully", res.data);
-      alert("Doctor created successfully");
-      navigate("/admin");
+      console.log("Doctor updated successfully", res.data);
+      alert("Doctor updated successfully");
+      navigate("/admin"); // Navigate back to admin after successful update
     } catch (error) {
-      console.log(error.message);
+      console.log("Error updating doctor:", error.message);
     }
   };
 
   return (
     <>
       <div className="flex h-screen w-full justify-between items-center">
-        <div className="flex h-[80%] w-1/2 flex-col justify-between items-start">
+        <form
+          className="flex h-[80%] w-1/2 flex-col justify-between items-start"
+          onSubmit={handleSubmit}
+        >
           <label htmlFor="name">Name</label>
           <input
             type="text"
             id="name"
-            name="name" // Added name attribute
+            name="name"
+            value={form.name} // Set the value from form state
             placeholder="Enter Your Name"
             onChange={handleChange}
           />
@@ -91,7 +114,8 @@ const UpdateDoctor = () => {
           <input
             type="text"
             id="email"
-            name="email" // Added name attribute
+            name="email"
+            value={form.email} // Set the value from form state
             placeholder="Enter Your Email"
             onChange={handleChange}
           />
@@ -100,16 +124,18 @@ const UpdateDoctor = () => {
           <input
             type="number"
             id="phoneNo"
-            name="phoneNo" // Added name attribute
+            name="phoneNo"
+            value={form.phoneNo} // Set the value from form state
             placeholder="Enter Your Number"
             onChange={handleChange}
           />
 
           <label htmlFor="password">Password</label>
           <input
-            type="string" // Changed type to "password" for better security
+            type="password"
             id="password"
-            name="password" // Added name attribute
+            name="password"
+            value={form.password} // Set the value from form state
             placeholder="Enter Your Password"
             onChange={handleChange}
           />
@@ -118,7 +144,8 @@ const UpdateDoctor = () => {
           <input
             type="text"
             id="specialization"
-            name="speciality" // Added name attribute
+            name="speciality"
+            value={form.speciality} // Set the value from form state
             placeholder="Specialization"
             onChange={handleChange}
           />
@@ -127,7 +154,8 @@ const UpdateDoctor = () => {
           <input
             type="number"
             id="experience"
-            name="experience" // Added name attribute
+            name="experience"
+            value={form.experience} // Set the value from form state
             onChange={handleChange}
           />
 
@@ -137,7 +165,7 @@ const UpdateDoctor = () => {
           <button type="submit" onClick={handleSubmit}>
             Submit
           </button>
-        </div>
+        </form>
       </div>
     </>
   );

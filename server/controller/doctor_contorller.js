@@ -84,7 +84,7 @@ if(err){
 
 export const singleDoctor = async (req, res)=>{
 const {id} = req.params;
-  const singleDoc = await doctor.findById({_id: id});
+  const singleDoc = await doctor.findById( id);
   try {
     
     if(singleDoc){
@@ -101,7 +101,7 @@ export const updateDoctor = async (req, res) => {
   const doc = await doctor.findById({ _id: id });
 
   if (!doc) {
-    return res.status(404).send("No Appointment given");
+    return res.status(404).send("No doctor given");
   }
 
   try {
@@ -122,7 +122,7 @@ export const deleteDoctor = async (req, res) => {
   }
   try {
     const deleteAppoint = await doctor.findByIdAndDelete(id);
-    res.status(400).send("Doctor Deleted...", deleteAppoint);
+    res.status(200).send({"Doctor Deleted...": deleteAppoint});
   } catch (error) {
     res.status(404).send(error.message);
     console.log("Doctor not deleted");

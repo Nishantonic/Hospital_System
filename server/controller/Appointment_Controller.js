@@ -67,7 +67,7 @@ export const deleteAppointment = async (req, res) => {
   }
   try {
     const deleteAppoint = await appointment.findByIdAndDelete(id);
-    res.status(400).send("Appointment Deleted...");
+    res.status(400).send({"Appointment Deleted...: " : deleteAppoint});
   } catch (error) {
     res.status(404).send(error.message);
     console.log("Appointment not deleted");

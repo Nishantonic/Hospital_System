@@ -3,18 +3,20 @@ import Navbar from "../Navbar"; // Assuming you already have a Navbar component
 import axios from "axios";
 import Doctors from "./Doctors";
 import Appointment from "./Appointment";
+import PatientsList from "./Patients/PatientsList";
 import { Link } from "react-router-dom";
 const Admin = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
-  const [doctor, setDoctor] = useState("");
-  const [appoint, setAppoint] = useState("");
+  const [doctor, setDoctor] = useState([]);
+  const [appoint, setAppoint] = useState([]);
+  const [patient, setPatient] = useState([]);
   useEffect(() => {
     const handleDoctor = async () => {
       try {
         const res = await axios.get("http://localhost:5000/doctor");
         setDoctor(res.data);
       } catch (error) {
-        alert("Error", error.message);
+        alert("Error in admin handleDoctor", error.message);
       }
     };
 
@@ -23,11 +25,22 @@ const Admin = () => {
         const res = await axios.get("http://localhost:5000/appoint");
         setAppoint(res.data);
       } catch (error) {
-        alert("Error", error.message);
+        alert("Error in admin handleAppointment", error.message);
+      }
+    };
+
+    const handlePatient = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/patient");
+        console.log("Patients List", res.data);
+        setPatient(res.data);
+      } catch (error) {
+        console.log("Error in patient: ", error.message);
       }
     };
     handleDoctor();
     handleAppointment();
+    handlePatient();
   }, []);
   // Function to handle navigation between tabs
   const handleTabChange = (tab) => {
@@ -111,9 +124,9 @@ const Admin = () => {
                     </Link>
                   </span>
                 </div>
-                <div className="grid grid-cols-2 gap-6">
-                  {doctor.map((doctor) => (
-                    <Doctors doctor={doctor} key={doctor.id} />
+                <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-6">
+                  {doctor.map((doctor, index) => (
+                    <Doctors key={index} doctor={doctor} />
                   ))}
                 </div>
 
@@ -124,7 +137,11 @@ const Admin = () => {
               <div>
                 <h1 className="text-3xl font-bold mb-4">Patients Management</h1>
                 <p>View and manage patient records, add new patients.</p>
-                {/* You can add further UI components here for managing patients */}
+                <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-6">
+                  {patient.map((patient) => (
+                    <PatientsList patient={patient} />
+                  ))}
+                </div>
               </div>
             )}
             {activeTab === "appointments" && (
@@ -134,8 +151,8 @@ const Admin = () => {
                   Manage upcoming appointments, schedule or reschedule
                   appointments.
                 </p>
-                {appoint.map((appoint) => (
-                  <Appointment appoint={appoint} />
+                {appoint.map((appoint, index) => (
+                  <Appointment key={index} appoint={appoint} />
                 ))}
                 {/* You can add further UI components here for managing appointments */}
               </div>

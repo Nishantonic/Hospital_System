@@ -4,7 +4,8 @@ const router = express.Router();
 
 router.get("/", docDetails);
 router.post("/create" , createDoc);
-router.post("/update/:id", updateDoctor);
+router.put("/update/:id", updateDoctor);
 router.delete("/delete/:id", deleteDoctor)
 router.get("/getSingleDoctor/:id", singleDoctor)
+
 export default router;
