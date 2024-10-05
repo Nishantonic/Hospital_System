@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar";
 import { jwtDecode } from "jwt-decode"; // Corrected import
-
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 const GetAppointment = () => {
+  const { id } = useParams();
   const [user, setUser] = useState({ name: "", email: "", phoneNo: "" }); // Ensure initial user object
   const [minDate, setMinDate] = useState("");
   const [doctor, setDoctor] = useState();
   const [time, setTime] = useState("");
-  const [getDoctor, setAllDoctor] = useState("");
+  const [getDoctor, setAllDoctor] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getData = async () => {
@@ -20,9 +23,12 @@ const GetAppointment = () => {
             email: decoded.email || "",
             phoneNo: decoded.phoneNo || "", // Ensure phoneNo is present in JWT
           });
-
           const res = await axios.get("http://localhost:5000/doctor/");
+
+          // if(id){
+
           setAllDoctor(res.data);
+          console.log(id);
         } catch (error) {
           console.error("Error decoding token: ", error.message);
         }
@@ -42,27 +48,34 @@ const GetAppointment = () => {
     setTodayDate();
   }, []);
 
-  const handleSubmit = async () => {
-    const appointment = {
-      name: user.name,
-      email: user.email,
-      phoneNo: user.phoneNo,
-      doctor: doctor,
-      appointmentDate: minDate,
-      appointmentTime: time,
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
+      const appointment = {
+        name: user.name,
+        email: user.email,
+        phoneNo: user.phoneNo,
+        doctor: doctor,
+        appointmentDate: minDate,
+        appointmentTime: time,
+      };
+
       const res = await axios.post(
         "http://localhost:5000/appoint/form",
         appointment
       );
-      res.status(200).send("Appointment Submitted");
+      // res.status(200).send("Appointment Submitted");
+      console.log("Appointment data", res.data);
+
+      alert("appointment done✅");
+      navigate("/user");
     } catch (error) {
-      res.send(error);
+      // res.send(error);
+      alert("Error occure:", error.message);
       console.log("Error: ", error);
     }
 
-    alert("Appointment Booked!!!...");
+    // alert("Appointment Booked!!!...");
   };
 
   return (
@@ -144,11 +157,15 @@ const GetAppointment = () => {
                     setDoctor(e.target.value);
                   }}
                 >
-                  <option value="">Select Doctor</option>
-
-                  {/* {getDoctor.map((doc) => (
-                    <option>{doc.name}</option>
-                  ))} */}
+                  {id ? (
+                    <option value="doctor">{id}</option>
+                  ) : (
+                    getDoctor.map((doc) => (
+                      <option key={doc._id} value={doc._id}>
+                        {doc.name}
+                      </option>
+                    ))
+                  )}
                   {/* <option value="doctor1">Dr. Sunil Batra</option>
                   <option value="doctor2">Dr. Akash Singh</option>
                   <option value="doctor3">Dr. Emily Davis</option>
@@ -170,6 +187,8 @@ const GetAppointment = () => {
                   id="date"
                   type="date"
                   min={minDate}
+                  value={minDate} // Bind to minDate state
+                  onChange={(e) => setMinDate(e.target.value)}
                 />
               </div>
 
@@ -185,7 +204,8 @@ const GetAppointment = () => {
                   className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:ring focus:border-blue-500"
                   id="time"
                   type="time"
-                  onSelect={setTime}
+                  value={time}
+                  onChange={(e) => setTime(e.target.value)}
                 />
               </div>
 

@@ -32,7 +32,7 @@ const Admin = () => {
     const handlePatient = async () => {
       try {
         const res = await axios.get("http://localhost:5000/patient");
-        console.log("Patients List", res.data);
+        // console.log("Patients List", res.data);
         setPatient(res.data);
       } catch (error) {
         console.log("Error in patient: ", error.message);

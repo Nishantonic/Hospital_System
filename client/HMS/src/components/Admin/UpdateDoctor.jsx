@@ -23,9 +23,7 @@ const UpdateDoctor = () => {
           `http://localhost:5000/doctor/getSingleDoctor/${id}`
         );
         const fetchedDoctor = res.data;
-        console.log("FEtchedDoctor", fetchedDoctor);
 
-        // Set form data with fetched doctor's data
         setForm({
           name: fetchedDoctor.name || "",
           email: fetchedDoctor.email || "",
@@ -46,8 +44,7 @@ const UpdateDoctor = () => {
   // Handle input change
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
-    console.log("change in form : ", form);
+    setForm((prevForm) => ({ ...prevForm, [name]: value }));
   };
 
   // Handle file input (image)
@@ -62,22 +59,38 @@ const UpdateDoctor = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const formData = new FormData();
-      formData.append("name", form.name);
-      formData.append("email", form.email);
-      formData.append("phoneNo", form.phoneNo);
-      formData.append("password", form.password);
-      formData.append("speciality", form.speciality);
-      formData.append("experience", form.experience);
-      if (form.image) {
-        formData.append("profileImage", form.image);
-      }
+    const data = new FormData();
+    data.append("name", form.name);
+    data.append("email", form.email);
+    data.append("phoneNo", form.phoneNo);
+    data.append("password", form.password);
+    data.append("speciality", form.speciality);
+    data.append("experience", form.experience);
 
+    // const formData = {
+    //   name: form.name,
+    //   email: form.email,
+    //   phoneNo: form.phoneNo,
+    //   password: form.password,
+    //   experience: form.experience,
+    //   speciality: form.speciality,
+    //   image: form.image,
+    // };
+
+    // Only append image if it's changed
+    if (form.image) {
+      data.append("profileImage", form.image);
+    }
+
+    try {
       // Update doctor with the specific ID
+
+      for (let pair of data.entries()) {
+        console.log(`${pair[0]}: ${pair[1]}`);
+      }
       const res = await axios.put(
-        `http://localhost:5000/doctor/update/${id}`, // Using PUT for updates, assuming API supports it
-        formData,
+        `http://localhost:5000/doctor/update/${id}`,
+        form,
         {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -85,9 +98,11 @@ const UpdateDoctor = () => {
         }
       );
 
-      console.log("Doctor updated successfully", res.data);
+      console.log("Doctor updated successfully data : ", res.data);
+      console.log("Formdata: ", form);
+
       alert("Doctor updated successfully");
-      navigate("/admin"); // Navigate back to admin after successful update
+      navigate("/admin");
     } catch (error) {
       console.log("Error updating doctor:", error.message);
     }
@@ -99,13 +114,14 @@ const UpdateDoctor = () => {
         <form
           className="flex h-[80%] w-1/2 flex-col justify-between items-start"
           onSubmit={handleSubmit}
+          encType="multipart/form-data"
         >
           <label htmlFor="name">Name</label>
           <input
             type="text"
             id="name"
             name="name"
-            value={form.name} // Set the value from form state
+            value={form.name}
             placeholder="Enter Your Name"
             onChange={handleChange}
           />
@@ -115,7 +131,7 @@ const UpdateDoctor = () => {
             type="text"
             id="email"
             name="email"
-            value={form.email} // Set the value from form state
+            value={form.email}
             placeholder="Enter Your Email"
             onChange={handleChange}
           />
@@ -125,7 +141,7 @@ const UpdateDoctor = () => {
             type="number"
             id="phoneNo"
             name="phoneNo"
-            value={form.phoneNo} // Set the value from form state
+            value={form.phoneNo}
             placeholder="Enter Your Number"
             onChange={handleChange}
           />
@@ -135,7 +151,7 @@ const UpdateDoctor = () => {
             type="password"
             id="password"
             name="password"
-            value={form.password} // Set the value from form state
+            value={form.password}
             placeholder="Enter Your Password"
             onChange={handleChange}
           />
@@ -145,7 +161,7 @@ const UpdateDoctor = () => {
             type="text"
             id="specialization"
             name="speciality"
-            value={form.speciality} // Set the value from form state
+            value={form.speciality}
             placeholder="Specialization"
             onChange={handleChange}
           />
@@ -155,16 +171,14 @@ const UpdateDoctor = () => {
             type="number"
             id="experience"
             name="experience"
-            value={form.experience} // Set the value from form state
+            value={form.experience}
             onChange={handleChange}
           />
 
           <label htmlFor="image">Image</label>
           <input type="file" name="profileImage" onChange={handleFile} />
 
-          <button type="submit" onClick={handleSubmit}>
-            Submit
-          </button>
+          <button type="submit">Submit</button>
         </form>
       </div>
     </>

@@ -36,27 +36,63 @@ export const TakeAppointment = async (req, res) => {
     res.status(200).json(newAppoint);
     console.log("Appointment Generated");
   } catch (error) {
-    res.status(404).json({ "Appointment post Error: ": error.message });
+    res.status(400).json({ "Appointment post Error: ": error.message });
     console.log("Appointment post Error: ", error.message);
   }
 };
 
+// export const updateAppointment = async (req, res) => {
+//   const { id } = req.params;
+//   const appoint = await appointment.findById({ _id: id });
+
+//   if (!appoint) {
+//     return res.status(404).send("No Appointment given");
+//   }
+
+//   try {
+//     const updateData = await appointment.findByIdAndUpdate(id, req.body, {
+//       new: true,
+//     });
+
+//     res.status(200).json({ "Appointment Updated Successfully...": updateData });
+//   } catch (error) {
+//     res.send("Error occure at the time of  update in appointment");
+//   }
+// };
+
+
 export const updateAppointment = async (req, res) => {
   const { id } = req.params;
-  const appoint = await appointment.findById({ _id: id });
-
-  if (!appoint) {
-    return res.status(404).send("No Appointment given");
-  }
 
   try {
+    // Check if the appointment exists
+    const appoint = await appointment.findById(id);
+    if (!appoint) {
+      return res.status(404).send("No Appointment found");
+    }
+
+    // Log the incoming request body for debugging
+    console.log("Incoming update data:", req.body);
+
+    // Update the appointment
     const updateData = await appointment.findByIdAndUpdate(id, req.body, {
-      new: true,
+      new: true, // Return the updated document
+      runValidators: true, // Ensures that Mongoose runs schema validation
     });
 
-    res.status(200).json({ "Appointment Updated Successfully...": updateData });
+    // If no document is found, return an error
+    if (!updateData) {
+      return res.status(404).json({ error: "Appointment not found" });
+    }
+
+    // Respond with the updated appointment
+    res.status(200).json({
+      message: "Appointment updated successfully",
+      data: updateData,
+    });
   } catch (error) {
-    res.send("Error occure at the time of  update in appointment");
+    console.error("Error updating appointment:", error); // Log the error for debugging
+    res.status(500).send("Error occurred while updating the appointment");
   }
 };
 

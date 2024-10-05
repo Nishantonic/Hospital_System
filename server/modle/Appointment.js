@@ -8,7 +8,7 @@ import mongoose, { model } from "mongoose";
   email:{
     type:String,
     require:true,
-    unique:true
+    // unique:true
   },
   phoneNo:{
     type:Number,

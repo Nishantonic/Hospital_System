@@ -96,24 +96,58 @@ const {id} = req.params;
   }
 } 
 
+// export const updateDoctor = async (req, res) => {
+//   const { id } = req.params;
+//   const doc = await doctor.findById({ _id: id });
+
+//   if (!doc) {
+//     return res.status(404).send("No doctor given");
+//   }
+
+//   try {
+//     const updateData = await doctor.findByIdAndUpdate(id, req.body, {
+//       new: true,
+//     });
+
+//     res.status(200).json({ "Doctor data Updated Successfully...": updateData });
+//   } catch (error) {
+//     res.send("Error occure at the time of  updation in doctor");
+//   }
+// };
+
 export const updateDoctor = async (req, res) => {
   const { id } = req.params;
-  const doc = await doctor.findById({ _id: id });
-
-  if (!doc) {
-    return res.status(404).send("No doctor given");
-  }
 
   try {
-    const updateData = await doctor.findByIdAndUpdate(id, req.body, {
-      new: true,
+    // Check if the doctor exists
+    
+
+    // Log the incoming data for debugging
+    console.log("Update data:", req.body);
+
+    // Handle image update if present
+    let updateFields = { ...req.body };
+    if (req.file) {
+      updateFields.image = req.file.path; // Assuming the image file is uploaded and file path is set
+    }
+
+    // Update doctor data with validation
+    const updatedDoctor = await doctor.findByIdAndUpdate(id, updateFields, {
+      new: true, // Return the updated document
+      runValidators: true, // Ensure schema validation is run
     });
 
-    res.status(200).json({ "Doctor data Updated Successfully...": updateData });
+    // If update is successful, respond with the updated doctor data
+    res.status(200).json({
+      message: "Doctor data updated successfully",
+      Data: updatedDoctor,
+    });
   } catch (error) {
-    res.send("Error occure at the time of  updation in doctor");
+    console.error("Error updating doctor:", error); // Log error for debugging
+    res.status(500).json({ error: "Error occurred while updating doctor" });
   }
 };
+
 
 export const deleteDoctor = async (req, res) => {
   const { id } = req.params;

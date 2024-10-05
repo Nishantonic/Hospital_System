@@ -55,6 +55,11 @@ const App = () => {
           />
 
           <Route
+            path="/user/appointment/:id"
+            element={role === "user" ? <GetAppointment /> : <Login />}
+          />
+
+          <Route
             path="/user/medicine/cart/:id"
             element={role === "user" ? <Cart_product /> : <Login />}
           />
